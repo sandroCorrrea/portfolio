@@ -111,11 +111,11 @@
     // <-=================== VERIFICANDO ERROS VINDOS DO BACK-END ====================->
     $(document).ready(() => {
         const urlParams = new URLSearchParams(window.location.search);
-        const erro      = urlParams.get("msg");
+        const status    = urlParams.get("msg");
 
-        if(erro === "erro"){
+        if(status === "erro"){
             $("#submitErrorMessage").removeClass("d-none");
-        }else if(erro === "success"){
+        }else if(status === "success"){
             $("#submitSuccessMessage").removeClass("d-none");
         }else{
             $("#submitErrorMessage").addClass("d-none");

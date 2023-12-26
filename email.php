@@ -17,10 +17,10 @@
 
     // <-======================= CONF. PARA ENVIO DE EMAIL ====================================->
     try{
-        $mail       = new PHPMailer();
+        $mail               = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host = $parsed['MAIL_HOST'];
-        $mail->SMTPAuth = true;
+        $mail->Host         = $parsed['MAIL_HOST'];
+        $mail->SMTPAuth     = true;
         $mail->SMTPSecure   = $parsed['MAIL_SMTP_SECURE'];
         $mail->Username     = $parsed['MAIL_MAILER'];
         $mail->Password     = $parsed['MAIL_PASSWORD'];
