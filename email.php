@@ -5,7 +5,7 @@
     require_once("./vendor/autoload.php");
 
     // <-======================= EXTRAINDO INFORMAÇÕES DO ARRAY POST ====================================->
-    extract($_POST);
+    extract($_GET);
 
     // <-======================= DADOS PARA ENVIAR O E-MAIL ====================================->
     if(is_file('config/.env')){
