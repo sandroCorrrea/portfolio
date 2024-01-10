@@ -126,10 +126,10 @@
     // <-=================== VALIDANDO INFORMAÇÕES AO ENVIAR E-MAIL ====================->
     const submit_form = () => {
 
-        let nome    = document.getElementById("name").value;
-        let email   = document.getElementById("email").value;
-        let phone   = document.getElementById("phone").value;
-        let message = document.getElementById("message").value;
+        let nome    = $("#name").val();
+        let email   = $("#email").val();
+        let phone   = $("#phone").val();
+        let message = $("#message").val();
         let erro    = 0;
 
         if(!nome){
@@ -176,7 +176,12 @@
 
             $(".loading-btn-form").html(btn);
 
-            $("#contactForm").submit();
+            $.getJSON(`./email.php?name=${nome}&email=${email}&phone=${phone}&message=${message}`, (respose) => {
+               if(respose){
+                $(".loading-btn-form").remove();
+                $("#submitSuccessMessage").removeClass("d-none");
+               }
+            });
         }
     };
 </script>

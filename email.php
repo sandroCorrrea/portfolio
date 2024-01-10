@@ -17,6 +17,7 @@
 
     // <-======================= CONF. PARA ENVIO DE EMAIL ====================================->
     try{
+
         $mail               = new PHPMailer();
         $mail->isSMTP();
         $mail->Host         = $parsed['MAIL_HOST'];
@@ -33,14 +34,14 @@
         $mail->Body         = "Você recebeu uma mensagem em seu portfólio com as seguintes informações: <br><b>Nome:</b> {$name}<br><b>Email:</b> {$email}<br><b>Telefone: </b>{$phone}<br><b>Mensagem: </b>{$message}";
 
         if(!$mail->send()   ){
-            header("Location: ./contact.html?msg=erro");
+            echo json_encode(array("message" => "success"));
             die;
         }else{
-            header("Location: ./contact.html?msg=success");
+            echo json_encode(array("message" => "error"));
             die;
         }
     }catch(Exception $erro){  
-        header("Location: ./contact.html?msg=erro");
+        echo json_encode(array("message" => "error"));
         die;
     }
 ?>
